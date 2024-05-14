@@ -1,29 +1,60 @@
-'use client'
-import {SelectiveContextParams} from "selective-context/dist/types";
-import {ControllerComponent, useGlobalDispatch, useGlobalListener} from "selective-context";
-import React, {useEffect} from "react";
-import PrintableListenerDiv, {GenericDivProps} from "@/app/demo/components/PrintableListenerDiv";
-import {MemoizedFunction} from "@/app/demo/types/memoizedFunction";
-import {initialFunction, otherFunction} from "@/app/demo/utils/mathFunctions";
+"use client";
+import { SelectiveContextParams } from "selective-context/dist/types";
+import {
+  ControllerComponent,
+  useGlobalDispatch,
+  useGlobalListener,
+} from "selective-context";
+import React, { useEffect } from "react";
+import PrintableListenerDiv, {
+  GenericDivProps,
+} from "@/app/demo/components/PrintableListenerDiv";
+import { MemoizedFunction } from "@/app/demo/types/memoizedFunction";
+import { initialFunction, otherFunction } from "@/app/demo/utils/mathFunctions";
+import { FunctionListenerPrintout } from "@/app/demo/literals/contextKeys";
 
-const functionListenerPrintout = 'function-listener-printout';
-const listenerKeyPrintable = 'prints-function-type';
-export default function FunctionListenerDiv({contextKey, listenerKey, initialValue, children, ...divProps}: SelectiveContextParams<MemoizedFunction<any, any>> & GenericDivProps) {
-    let {currentState} = useGlobalListener({contextKey, listenerKey, initialValue});
-    const { dispatchWithoutListen } = useGlobalDispatch<string>(
-      functionListenerPrintout,
+const listenerKeyPrintable = "prints-function-type";
+const initialFunctionLabel = "Simple";
+export default function FunctionListenerDiv({
+  contextKey,
+  listenerKey,
+  initialValue,
+  children, ref,
+  ...divProps
+}: SelectiveContextParams<MemoizedFunction<any, any>> & GenericDivProps) {
+  let { currentState } = useGlobalListener({
+    contextKey,
+    listenerKey,
+    initialValue,
+  });
+  const { dispatchWithoutListen } = useGlobalDispatch<string>(
+    FunctionListenerPrintout,
+  );
+
+  useEffect(() => {
+    dispatchWithoutListen(
+      currentState === initialFunction
+        ? initialFunctionLabel
+        : currentState === otherFunction
+          ? "Chaotic"
+          : "Unexpected!",
     );
-    
-    useEffect(() => {
-        dispatchWithoutListen(
-            currentState === initialFunction ? 'Simple' : currentState === otherFunction ? 'Chaotic' : 'Unexpected!'
-        )
-    }, [currentState, dispatchWithoutListen])
+  }, [currentState, dispatchWithoutListen]);
 
-    return (
-        <PrintableListenerDiv {...divProps} contextKey={functionListenerPrintout} listenerKey={listenerKeyPrintable} initialValue={''}>
-            <ControllerComponent contextKey={functionListenerPrintout} initialValue={''}/>
-            {children}
-        </PrintableListenerDiv>
-    )
+  return (
+    <>
+      <PrintableListenerDiv
+        {...divProps}
+        contextKey={FunctionListenerPrintout}
+        listenerKey={`${listenerKey}:${listenerKeyPrintable}`}
+        initialValue={initialFunctionLabel}
+      >
+        {children}
+      </PrintableListenerDiv>
+      <ControllerComponent
+        contextKey={FunctionListenerPrintout}
+        initialValue={initialFunctionLabel}
+      />
+    </>
+  );
 }

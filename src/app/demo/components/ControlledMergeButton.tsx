@@ -37,7 +37,7 @@ export default function ControlledMergeButton<T>({
     >
       {children}
       <ReRenderListener
-        parentComponent={`controlled-merge-button:${listenerKey}`}
+        parentComponent={`controlled-merge-button:${contextKey}:${listenerKey}:${valueContextKey}`}
         renderCount={renderCounter}
       />
     </button>

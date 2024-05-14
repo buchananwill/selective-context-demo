@@ -39,7 +39,7 @@ export default function ControlledReplaceButton<T>({
     >
       {children}
       <ReRenderListener
-        parentComponent={`controlled-replace-button:${listenerKey}`}
+        parentComponent={`controlled-replace-button:${contextKey}:${listenerKey}`}
         renderCount={renderCounter}
       />
     </button>

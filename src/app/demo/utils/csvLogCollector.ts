@@ -4,9 +4,9 @@ import {
   MemoizedSupplier,
 } from "@/app/demo/types/memoizedFunction";
 
-export function logCollector(prev: string, next: string) {
+export function csvLogCollector(prev: string, next: string) {
     console.log(prev)
-  return prev.length > 0 ? `${prev},\n${next}` : next;
+  return prev.length > 0 ? `${prev},${next}` : next;
 }
 
 export function useLogStore(wrapper?: {header: string; footer: string}):[MemoizedFunction<string, void>, MemoizedSupplier<string>] {
@@ -14,7 +14,7 @@ export function useLogStore(wrapper?: {header: string; footer: string}):[Memoize
         let log = ''
         const addLog: MemoizedFunction<string, void> = {
           memoizedFunction: (nextLog: string) => {
-            log = logCollector(log, nextLog);
+            log = csvLogCollector(log, nextLog);
           },
         }; 
         const getLog: MemoizedSupplier<string> = {

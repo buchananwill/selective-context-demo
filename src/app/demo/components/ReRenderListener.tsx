@@ -1,13 +1,15 @@
-'use client'
-import { useEffect, useRef } from "react";
+"use client";
+import { useEffect } from "react";
 import { useGlobalListener } from "selective-context";
 import { MemoizedFunction } from "@/app/demo/types/memoizedFunction";
+import {ReRenderTracker} from "@/app/demo/literals/contextKeys";
+
 
 function warningFunction(log: string) {
-  console.warn("no function in selective context");
+  console.warn("no function in selective context", log);
 }
 
-const initialValue = { memoizedFunction: warningFunction };
+const fallbackWarningFunction = { memoizedFunction: warningFunction };
 export default function ReRenderListener({
   parentComponent,
   renderCount,
@@ -15,17 +17,19 @@ export default function ReRenderListener({
   parentComponent: string;
   renderCount: number;
 }) {
+
   let {
     currentState: { memoizedFunction },
   } = useGlobalListener<MemoizedFunction<string, void>>({
-    contextKey: "re-render-tracker",
+    contextKey: ReRenderTracker,
     listenerKey: parentComponent,
-    initialValue: initialValue,
+    initialValue: fallbackWarningFunction,
   });
 
   useEffect(() => {
+    const arg = `{"parent": "${parentComponent}", "renderCount": "${renderCount}"}`;
     if (renderCount > 0)
-      memoizedFunction(`{"parent": "${parentComponent}", "renderCount": "${renderCount}"}`);
+      memoizedFunction(arg);
   });
 
   return null;

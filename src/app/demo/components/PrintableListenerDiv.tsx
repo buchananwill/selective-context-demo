@@ -10,7 +10,7 @@ export type GenericDivProps = React.DetailedHTMLProps<
   HTMLDivElement
 >;
 
-export default function PrintableListenerDiv({
+function PrintableListenerDiv({
   contextKey,
   listenerKey,
   initialValue,
@@ -35,3 +35,5 @@ export default function PrintableListenerDiv({
     </div>
   );
 }
+
+export default PrintableListenerDiv

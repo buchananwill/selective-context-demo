@@ -7,5 +7,7 @@ export function useRenderCounter() {
         mutableRefObject.current++
     })
 
+    console.log(mutableRefObject.current)
+
     return mutableRefObject.current
 }

@@ -12,7 +12,7 @@ export type GenericDivProps = React.DetailedHTMLProps<
   HTMLDivElement
 >;
 
-const theme = {
+export const theme = {
   scheme: 'monokai',
   author: 'Will Buchanan',
   base00: '#040000',
@@ -57,13 +57,17 @@ export default function JsonListenerDiv({
 
   return (
     <div {...divProps}>
-      <div className={'w-full h-fit drop-shadow-md '}>{data && <JSONTree data={data} invertTheme={false} theme={{
+      <div className={'w-full min-h-fit h-full drop-shadow-md '}>{data && <JSONTree data={data} invertTheme={false} theme={{
         extend: theme,
-        tree: {padding: "1rem", borderRadius: "0.5rem"}
+        tree: {
+          padding: "1rem",
+          // borderRadius: "8px",
+          margin: "0px"
+        }
       }}/>}
       {children}
       <ReRenderListener
-        parentComponent={`printable-listener-div:${contextKey}:${listenerKey}`}
+        parentComponent={`JSON-listener-div:${contextKey}:${listenerKey}`}
         renderCount={renderCounter}
       />
       </div>

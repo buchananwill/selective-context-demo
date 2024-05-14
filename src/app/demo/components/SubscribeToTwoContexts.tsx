@@ -19,7 +19,7 @@ export default function SubscribeToTwoContexts(props:GenericDivProps) {
 
 
     return (
-      <div className={'col-span-3 grid grid-cols-3 gap-2 border-4 p-1 rounded-lg'} style={{borderColor: discoColors[(renderCounter % 8 + 8)][1]}}>
+      <div className={'col-span-3 grid grid-cols-3 gap-2 border-4 p-1 rounded-lg select-none'} style={{borderColor: discoColors[(renderCounter % 8 + 8)][1]}}>
           <div  {...props}>{`${currentState.get(contextKeys[0])}`}</div>
           <div {...props}>This group of divs are subscribed to two states.</div>
           <div  {...props}>{`${currentState.get(contextKeys[1])}`}</div>

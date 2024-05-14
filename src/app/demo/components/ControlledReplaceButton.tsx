@@ -3,7 +3,7 @@ import React from "react";
 import { useGlobalDispatch, useGlobalListener } from "selective-context";
 import { SelectiveContextParams } from "selective-context/dist/types";
 
-import {MemoizedFunction, MemoizedSupplier} from "@/app/demo/types/memoizedFunction";
+import {MemoizedSupplier} from "@/app/demo/types/memoizedFunction";
 import { useRenderCounter } from "@/app/demo/utils/useRenderCounter";
 import ReRenderListener from "@/app/demo/components/ReRenderListener";
 

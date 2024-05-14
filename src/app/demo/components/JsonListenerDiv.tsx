@@ -5,7 +5,6 @@ import { useGlobalListener } from "selective-context";
 import { useRenderCounter } from "@/app/demo/utils/useRenderCounter";
 import ReRenderListener from "@/app/demo/components/ReRenderListener";
 import { JSONTree } from "react-json-tree";
-import { JsonView } from "react-json-view-lite";
 
 export type GenericDivProps = React.DetailedHTMLProps<
   React.HTMLAttributes<HTMLDivElement>,

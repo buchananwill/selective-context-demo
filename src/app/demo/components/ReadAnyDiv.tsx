@@ -1,6 +1,6 @@
-import PrintableListenerDiv, {GenericDivProps} from "@/app/demo-2/components/PrintableListenerDiv";
+import PrintableListenerDiv, {GenericDivProps} from "@/app/demo/components/PrintableListenerDiv";
 
-import {PageListeners} from "@/app/demo-2/literals/listenerKeys";
+import {PageListeners} from "@/app/demo/literals/listenerKeys";
 import {ControllerComponent} from "selective-context";
 
 

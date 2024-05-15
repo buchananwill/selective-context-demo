@@ -3,8 +3,8 @@
 
 
 
-import {MemoizedFunction} from "@/app/demo-2/types/memoizedFunction";
-import {ReRenderTracker} from "@/app/demo-2/literals/contextKeys";
+import {MemoizedFunction} from "@/app/demo/types/memoizedFunction";
+import {ReRenderTracker} from "@/app/demo/literals/contextKeys";
 import React, {ProfilerOnRenderCallback, useCallback, useEffect} from "react";
 import {useGlobalListener} from "selective-context";
 

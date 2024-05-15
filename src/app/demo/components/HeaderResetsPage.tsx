@@ -5,11 +5,11 @@ import {
   ContextKeys,
   LogContent,
   NthTerm,
-} from "@/app/demo-2/literals/contextKeys";
-import { initialFunction } from "@/app/demo-2/utils/mathFunctions";
-import { createLogStore, useLogStore } from "@/app/demo-2/utils/useLogStore";
-import { wrapper } from "@/app/demo-2/literals/logFormat";
-import { GenericButtonProps } from "@/app/demo-2/components/ControlledMergeButton";
+} from "@/app/demo/literals/contextKeys";
+import { initialFunction } from "@/app/demo/utils/mathFunctions";
+import { createLogStore, useLogStore } from "@/app/demo/utils/useLogStore";
+import { wrapper } from "@/app/demo/literals/logFormat";
+import { GenericButtonProps } from "@/app/demo/components/ControlledMergeButton";
 
 export default function HeaderResetsPage({
   children,className

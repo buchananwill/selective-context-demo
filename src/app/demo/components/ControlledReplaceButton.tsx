@@ -1,8 +1,8 @@
 'use client'
 
-import {MemoizedSupplier} from "@/app/demo-2/types/memoizedFunction";
-import {useRenderCounter} from "@/app/demo-2/utils/useRenderCounter";
-import ReRenderListener from "@/app/demo-2/components/ReRenderListener";
+import {MemoizedSupplier} from "@/app/demo/types/memoizedFunction";
+import {useRenderCounter} from "@/app/demo/utils/useRenderCounter";
+import ReRenderListener from "@/app/demo/components/ReRenderListener";
 import {SelectiveContextParams} from "selective-context/dist/types";
 import {useGlobalDispatch, useGlobalListener} from "selective-context";
 

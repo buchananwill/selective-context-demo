@@ -4,8 +4,8 @@
 
 
 
-import {useRenderCounter} from "@/app/demo-2/utils/useRenderCounter";
-import ReRenderListener from "@/app/demo-2/components/ReRenderListener";
+import {useRenderCounter} from "@/app/demo/utils/useRenderCounter";
+import ReRenderListener from "@/app/demo/components/ReRenderListener";
 import {SelectiveContextParams} from "selective-context/dist/types";
 import {useGlobalListener} from "selective-context";
 

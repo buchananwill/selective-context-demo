@@ -4,9 +4,9 @@
 
 
 
-import {useRenderCounter} from "@/app/demo-2/utils/useRenderCounter";
+import {useRenderCounter} from "@/app/demo/utils/useRenderCounter";
 import {JSONTree} from "react-json-tree";
-import ReRenderListener from "@/app/demo-2/components/ReRenderListener";
+import ReRenderListener from "@/app/demo/components/ReRenderListener";
 import {useGlobalListener} from "selective-context";
 import {SelectiveContextParams} from "selective-context/dist/types";
 

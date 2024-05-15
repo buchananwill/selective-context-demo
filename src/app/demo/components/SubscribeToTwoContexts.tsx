@@ -1,12 +1,12 @@
 "use client"
 
 
-import {ContextKeys} from "@/app/demo-2/literals/contextKeys";
-import {theme} from "@/app/demo-2/components/JsonListenerDiv";
-import {GenericDivProps} from "@/app/demo-2/components/PrintableListenerDiv";
-import {useRenderCounter} from "@/app/demo-2/utils/useRenderCounter";
-import ReRenderListener from "@/app/demo-2/components/ReRenderListener";
-import {SubscribeToTwoContextsKey} from "@/app/demo-2/literals/listenerKeys";
+import {ContextKeys} from "@/app/demo/literals/contextKeys";
+import {theme} from "@/app/demo/components/JsonListenerDiv";
+import {GenericDivProps} from "@/app/demo/components/PrintableListenerDiv";
+import {useRenderCounter} from "@/app/demo/utils/useRenderCounter";
+import ReRenderListener from "@/app/demo/components/ReRenderListener";
+import {SubscribeToTwoContextsKey} from "@/app/demo/literals/listenerKeys";
 import {useGlobalListenerGroup} from "selective-context";
 
 const contextKeys = [ContextKeys.FunctionListenerPrintout, ContextKeys.NthTerm]

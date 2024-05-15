@@ -2,9 +2,9 @@
 
 import React from "react";
 
-import { useRenderCounter } from "@/app/demo-2/utils/useRenderCounter";
-import ReRenderListener from "@/app/demo-2/components/ReRenderListener";
-import { GenericDivProps } from "@/app/demo-2/components/PrintableListenerDiv";
+import { useRenderCounter } from "@/app/demo/utils/useRenderCounter";
+import ReRenderListener from "@/app/demo/components/ReRenderListener";
+import { GenericDivProps } from "@/app/demo/components/PrintableListenerDiv";
 import {SelectiveContextParams} from "selective-context/dist/types";
 import {useGlobalDispatchAndListener} from "selective-context";
 

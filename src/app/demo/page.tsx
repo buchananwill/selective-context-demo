@@ -9,9 +9,9 @@ import ReadAnyDiv from "./components/ReadAnyDiv";
 import SubscribeToTwoContexts from "./components/SubscribeToTwoContexts";
 import {PageListeners} from "./literals/listenerKeys";
 
-import ControlledNumberInput from "@/app/demo-2/components/ControlledNumberInput";
+import ControlledNumberInput from "@/app/demo/components/ControlledNumberInput";
 import {ControllerComponent, SelectiveContextManagerGlobal} from "selective-context";
-import HeaderResetsPage from "@/app/demo-2/components/HeaderResetsPage";
+import HeaderResetsPage from "@/app/demo/components/HeaderResetsPage";
 React.memo(PrintableListenerDiv);
 const someDivClassNames = 'border-2 rounded-lg place-content-center justify-center flex items-center p-1';
 

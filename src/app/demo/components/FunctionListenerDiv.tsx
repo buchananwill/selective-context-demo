@@ -6,11 +6,11 @@
 
 
 
-import {MemoizedFunction} from "@/app/demo-2/types/memoizedFunction";
-import PrintableListenerDiv, {GenericDivProps} from "@/app/demo-2/components/PrintableListenerDiv";
-import {FunctionListenerPrintout} from "@/app/demo-2/literals/contextKeys";
+import {MemoizedFunction} from "@/app/demo/types/memoizedFunction";
+import PrintableListenerDiv, {GenericDivProps} from "@/app/demo/components/PrintableListenerDiv";
+import {FunctionListenerPrintout} from "@/app/demo/literals/contextKeys";
 import {useEffect} from "react";
-import {initialFunction, otherFunction} from "@/app/demo-2/utils/mathFunctions";
+import {initialFunction, otherFunction} from "@/app/demo/utils/mathFunctions";
 import {ControllerComponent, useGlobalDispatch, useGlobalListener} from "selective-context";
 import {SelectiveContextParams} from "selective-context/dist/types";
 

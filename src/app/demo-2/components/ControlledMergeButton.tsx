@@ -1,11 +1,14 @@
 'use client'
-import React from "react";
-import { useGlobalDispatch, useGlobalListener } from "selective-context";
-import { SelectiveContextParams } from "selective-context/dist/types";
 
-import { MemoizedFunction } from "@/app/demo/types/memoizedFunction";
-import { useRenderCounter } from "@/app/demo/utils/useRenderCounter";
-import ReRenderListener from "@/app/demo/components/ReRenderListener";
+
+import {MemoizedFunction} from "../types/memoizedFunction";
+import {useRenderCounter} from "../utils/useRenderCounter";
+
+import ReRenderListener from "./ReRenderListener";
+import React from "react";
+import {SelectiveContextParams} from "selective-context/dist/types";
+import {useGlobalDispatch, useGlobalListener} from "selective-context";
+
 
 export type GenericButtonProps = React.DetailedHTMLProps<
   React.ButtonHTMLAttributes<HTMLButtonElement>,
@@ -23,7 +26,7 @@ export default function ControlledMergeButton<T>({
   valueContextKey: string;
 } & SelectiveContextParams<MemoizedFunction<T, T>> &
   Omit<GenericButtonProps, "onClick">) {
-  let renderCounter = useRenderCounter();
+  const renderCounter = useRenderCounter();
   const {
     currentState: { memoizedFunction },
   } = useGlobalListener({ contextKey, listenerKey, initialValue });

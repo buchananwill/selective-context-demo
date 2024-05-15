@@ -1,9 +1,13 @@
 "use client";
-import React from "react";
-import { SelectiveContextParams } from "selective-context/dist/types";
-import { useGlobalListener } from "selective-context";
-import { useRenderCounter } from "@/app/demo/utils/useRenderCounter";
-import ReRenderListener from "@/app/demo/components/ReRenderListener";
+
+
+
+
+
+import {useRenderCounter} from "@/app/demo-2/utils/useRenderCounter";
+import ReRenderListener from "@/app/demo-2/components/ReRenderListener";
+import {SelectiveContextParams} from "selective-context/dist/types";
+import {useGlobalListener} from "selective-context";
 
 export type GenericDivProps = React.DetailedHTMLProps<
   React.HTMLAttributes<HTMLDivElement>,
@@ -17,12 +21,12 @@ function PrintableListenerDiv({
   children,
   ...divProps
 }: SelectiveContextParams<number | string> & GenericDivProps) {
-  let { currentState } = useGlobalListener({
+  const { currentState } = useGlobalListener({
     contextKey,
     listenerKey,
     initialValue,
   });
-  let renderCounter = useRenderCounter();
+  const renderCounter = useRenderCounter();
 
   return (
     <div {...divProps}>

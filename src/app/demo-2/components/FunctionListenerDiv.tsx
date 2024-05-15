@@ -1,28 +1,30 @@
 "use client";
-import { SelectiveContextParams } from "selective-context/dist/types";
-import {
-  ControllerComponent,
-  useGlobalDispatch,
-  useGlobalListener,
-} from "selective-context";
-import React, { useEffect } from "react";
-import PrintableListenerDiv, {
-  GenericDivProps,
-} from "@/app/demo/components/PrintableListenerDiv";
-import { MemoizedFunction } from "@/app/demo/types/memoizedFunction";
-import { initialFunction, otherFunction } from "@/app/demo/utils/mathFunctions";
-import { FunctionListenerPrintout } from "@/app/demo/literals/contextKeys";
+
+
+
+
+
+
+
+import {MemoizedFunction} from "@/app/demo-2/types/memoizedFunction";
+import PrintableListenerDiv, {GenericDivProps} from "@/app/demo-2/components/PrintableListenerDiv";
+import {FunctionListenerPrintout} from "@/app/demo-2/literals/contextKeys";
+import {useEffect} from "react";
+import {initialFunction, otherFunction} from "@/app/demo-2/utils/mathFunctions";
+import {ControllerComponent, useGlobalDispatch, useGlobalListener} from "selective-context";
+import {SelectiveContextParams} from "selective-context/dist/types";
 
 const listenerKeyPrintable = "prints-function-type";
-const initialFunctionLabel = "Simple";
+export const initialFunctionLabel = "Simple";
+export const chaoticLabel = "Chaotic";
 export default function FunctionListenerDiv({
   contextKey,
   listenerKey,
   initialValue,
-  children, ref,
+  children,
   ...divProps
-}: SelectiveContextParams<MemoizedFunction<any, any>> & GenericDivProps) {
-  let { currentState } = useGlobalListener({
+}: SelectiveContextParams<MemoizedFunction<number, number>> & GenericDivProps) {
+  const { currentState } = useGlobalListener({
     contextKey,
     listenerKey,
     initialValue,
@@ -36,7 +38,7 @@ export default function FunctionListenerDiv({
       currentState === initialFunction
         ? initialFunctionLabel
         : currentState === otherFunction
-          ? "Chaotic"
+          ? chaoticLabel
           : "Unexpected!",
     );
   }, [currentState, dispatchWithoutListen]);

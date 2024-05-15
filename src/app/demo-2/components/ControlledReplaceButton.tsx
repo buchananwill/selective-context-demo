@@ -1,11 +1,10 @@
 'use client'
-import React from "react";
-import { useGlobalDispatch, useGlobalListener } from "selective-context";
-import { SelectiveContextParams } from "selective-context/dist/types";
 
-import {MemoizedSupplier} from "@/app/demo/types/memoizedFunction";
-import { useRenderCounter } from "@/app/demo/utils/useRenderCounter";
-import ReRenderListener from "@/app/demo/components/ReRenderListener";
+import {MemoizedSupplier} from "@/app/demo-2/types/memoizedFunction";
+import {useRenderCounter} from "@/app/demo-2/utils/useRenderCounter";
+import ReRenderListener from "@/app/demo-2/components/ReRenderListener";
+import {SelectiveContextParams} from "selective-context/dist/types";
+import {useGlobalDispatch, useGlobalListener} from "selective-context";
 
 export type GenericButtonProps = React.DetailedHTMLProps<
   React.ButtonHTMLAttributes<HTMLButtonElement>,
@@ -23,7 +22,7 @@ export default function ControlledReplaceButton<T>({
   consumerContextKey: string;
 } & SelectiveContextParams<MemoizedSupplier<T>> &
   Omit<GenericButtonProps, "onClick">) {
-  let renderCounter = useRenderCounter();
+  const renderCounter = useRenderCounter();
   const {
     currentState: {get },
   } = useGlobalListener({ contextKey, listenerKey, initialValue });
@@ -31,8 +30,6 @@ export default function ControlledReplaceButton<T>({
   return (
     <button
       onClick={() => {
-        console.log(get)
-        console.log(get())
         dispatchWithoutListen(get());
       }}
       {...otherProps}

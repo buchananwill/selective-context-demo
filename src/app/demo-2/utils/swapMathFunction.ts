@@ -1,5 +1,6 @@
-import {MemoizedFunction} from "@/app/demo/types/memoizedFunction";
-import {initialFunction, otherFunction} from "@/app/demo/utils/mathFunctions";
+import {MemoizedFunction} from "../types/memoizedFunction";
+import {initialFunction, otherFunction} from "./mathFunctions";
+
 
 function swapMathFunction(memoizedFunction: MemoizedFunction<number, number>) {
     if (memoizedFunction === initialFunction) return otherFunction
